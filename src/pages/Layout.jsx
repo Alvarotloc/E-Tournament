@@ -1,10 +1,10 @@
-import styles from '../styles/Header.module.css';
+import styles from '../styles/Layout.module.css';
 import { Outlet } from 'react-router-dom';
 const Layout = () => {
   return (
     <>
     <header className={styles.header}>
-        <img src="./imgs/LogoHeader.png" alt="Logo de la empresa" />
+        <img src="./imgs/LogoHeader.svg" alt="Logo de la empresa" />
     </header>
     <main>
         <div className="contenedor-general">

@@ -11,9 +11,11 @@ html{
 body{
   font-size: 16px;
   /* Esto lo que hace es que 1rem equivalga a 10px */
-  background-image: linear-gradient(to bottom, #5f43ed, #956edf);
-  background-repeat: no-repeat;
-  min-height: 100vh;
+  /* background-image: linear-gradient(to bottom, #5f43ed, #956edf); */
+  background-color: #262626;
+  /* background-repeat: no-repeat; */
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
 }
 .contenedor-general{
   height: 83vh;

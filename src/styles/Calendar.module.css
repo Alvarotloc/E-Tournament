@@ -1,11 +1,133 @@
 .contenedorCalendar {
-  height: 60vh;
-  width: 70vw;
-  border-radius: .5rem;
-  background: rgba( 53, 39, 126, 0.25 );
-  box-shadow: 5px 5px 12px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 5.5px );
-  -webkit-backdrop-filter: blur( 5.5px );
-  border-radius: 10px;
-  /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+  height: 52vh;
+  width: 90vw;
+  background-color: rgb(89, 89, 89);
+  border-radius: 1rem;
+  overflow: hidden;
+  color: white;
+}
+@media (min-height: 800px) {
+    .contenedorCalendar{
+      height: 45vh;
+    }
+}
+@media (min-width: 670px) {
+  .contenedorCalendar {
+    height: 75vh;
+    width: 70vw;
+  }
+}
+.contenedorCalendar header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #936DE0;
+  position: relative;
+  gap: 60vw;
+}
+@media (min-width: 670px) {
+    .contenedorCalendar header{
+      gap:35rem;
+    }
+}
+.contenedorCalendar header h1{
+  position: absolute;
+  font-weight: 400;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+.contenedorCalendar header h1 span{
+  font-size: 1.2rem;
+}
+@media (min-width: 670px) {
+    .contenedorCalendar header h1{
+      font-size: 3rem;
+    }
+    .contenedorCalendar header h1 span{
+      font-size: 1.5rem;
+    }
+}
+.contenedorCalendar header p{
+  font-size: 2rem;
+  cursor: pointer;
+}
+@media (min-width: 670px) {
+    .contenedorCalendar header p{
+      font-size: 4rem;
+    }
+}
+.contenedorDias{
+  display:flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+}
+@media (min-width: 670px) {
+    .contenedorDias{
+      padding: 2rem 3rem;
+    }
+}
+.diasSemana{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+@media (min-width: 670px) {
+    .diasSemana{
+      font-size: 2rem;
+    }
+}
+.numeros{
+  display: grid;
+  justify-items: center;
+  gap: 2rem 0;
+  grid-template-columns: repeat(7, 1fr);
+}
+.numeros div{
+  width: 3rem;
+  height: 3rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color .4s;
+}
+.numeros div:hover{
+  background-color: rgb(71, 71, 71);
+}
+@media (min-width: 670px) {
+    .numeros div{
+      width: 5rem;
+      height: 5rem;
+      font-size: 2.5rem;
+    }
+}
+.activo{
+  background-color: #5F43ED;
+}
+.lunes{
+  grid-column: 1 / 2;
+}
+.martes{
+  grid-column: 2 / 3;
+}
+.miercoles{
+  grid-column: 3 / 4;
+}
+.jueves{
+  grid-column: 4 / 5;
+}
+.viernes{
+  grid-column: 5 / 6;
+}
+.sabado{
+  grid-column: 6 / 7;
+}
+.domingo{
+  grid-column: 7 / 8;
 }
