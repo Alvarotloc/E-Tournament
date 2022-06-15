@@ -1,9 +1,7 @@
-import Alerta from "../components/Alerta";
 import useFormulario from "../hooks/useFormulario";
 import styles from "../styles/Formulario.module.css";
 const Formulario = () => {
   const {
-    alerta,
     nombre,
     setNombre,
     participantes,
@@ -20,9 +18,6 @@ const Formulario = () => {
       <header>
         <h1>{textos[2]}</h1>
       </header>
-      {alerta.mensaje && (
-        <Alerta mensaje={alerta.mensaje} error={alerta.error} />
-      )}
       <fieldset>
         <div className={styles.campo}>
           <label htmlFor="nombre">{textos[3]}</label>

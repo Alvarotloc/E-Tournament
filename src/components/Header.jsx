@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import ToggleIdioma from "./ToggleIdioma";
 const Header = () => {
   const [textos, setTextos] = useState([]);
+  const [navVisible, setNavVisible] = useState(false);
   const { isSpanish } = useIdioma();
   const { pathname } = useLocation();
 
@@ -19,7 +20,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <img src="./imgs/LogoHeader.svg" alt="Logo de la empresa" />
-      <nav>
+      <nav className={navVisible ? styles.visible : ''}>
         <Link
           to="/formulario"
           className={pathname === "/formulario" ? styles.enlaceActual : ""}
@@ -31,6 +32,11 @@ const Header = () => {
         </Link>
         <ToggleIdioma />
       </nav>
+      <div className={`${styles.hamburguer} ${navVisible ? styles.cerrar : ''}`} onClick={() => setNavVisible(!navVisible)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </header>
   );
 };

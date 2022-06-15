@@ -5,10 +5,32 @@
     justify-content:space-between;
     align-items:center;
     padding: 0 5rem;
+    width: 100%;
+    position: relative;
 }
 .header nav{
     display:flex;
+    flex-direction: column;
+    align-items:center;
     gap: 5rem;
+    position: fixed;
+    right: -100%;
+    background-color: #0f0f0f;
+    padding: 3rem;
+    top: 10rem;
+    transition: right 0.5s ease-in-out;
+    opacity: .9;
+    border-radius: 1rem;
+}
+.header nav.visible{
+    right: 0;
+}
+@media (min-width: 792px) {
+    .header nav{
+        flex-direction: row;
+        position: static;
+        padding: 0;
+    }
 }
 .header nav a{
     color: #fff;
@@ -52,6 +74,34 @@
 }
 .toggle .activo{
     left: calc(100% - 2rem);
+}
+.hamburguer{
+    display:flex;
+    flex-direction: column;
+    gap: .6rem;
+    cursor: pointer;
+    position: absolute;
+    right: 5rem;
+}
+@media (min-width: 792px) {
+    .hamburguer{
+        display:none;
+    }
+}
+.hamburguer span{
+    height: .3rem;
+    width: 3rem;
+    background-color: white;
+    transition: all .4s;
+}
+.hamburguer.cerrar span:nth-child(1){
+    transform: rotate(45deg) translateY(.7rem) translateX(.5rem);
+}
+.hamburguer.cerrar span:nth-child(2){
+    opacity: 0;
+}
+.hamburguer.cerrar span:nth-child(3){
+    transform: rotate(-45deg) translateY(-.8rem) translateX(.5rem);
 }
 .contenedorGeneral{
     min-height: 83vh;

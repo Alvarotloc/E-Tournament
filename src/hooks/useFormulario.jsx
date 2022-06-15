@@ -3,7 +3,6 @@ import useIdioma from "../hooks/useIdioma";
 import { toast } from "react-toastify";
 
 const useFormulario = () => {
-    const [alerta, setAlerta] = useState({ error: false, mensaje: "" });
     const [nombre, setNombre] = useState("");
     const [participantes, setParticipantes] = useState("");
     const [fecha, setFecha] = useState("");
@@ -46,26 +45,15 @@ const useFormulario = () => {
       setTextos(textosIngles);
     }, [isSpanish]);
   
-    useEffect(() => {
-      if (alerta.mensaje) {
-        setTimeout(() => {
-          setAlerta({ error: false, mensaje: "" });
-        }, 3000);
-      }
-    }, [alerta]);
-  
     const handleSubmit = (e) => {
       e.preventDefault();
       if ([nombre, participantes, fecha, descripcion].includes("")) {
-        // setAlerta({ error: true, mensaje: textos[0] });
         toast.error(textos[0]);
         return;
       }
-      // setAlerta({ error: false, mensaje: textos[1] });
       toast.success(textos[1]);
     };
     return {
-        alerta,
         nombre,
         setNombre,
         participantes,
