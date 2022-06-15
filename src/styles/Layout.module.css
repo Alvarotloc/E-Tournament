@@ -2,12 +2,60 @@
     height: 17vh;
     background-color: #0f0f0f;
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
+    padding: 0 5rem;
+}
+.header nav{
+    display:flex;
+    gap: 5rem;
+}
+.header nav a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color .4s;
+}
+.header nav a:hover{
+    color: #936de0;
+}
+.header nav a.enlaceActual{
+    color: #936de0;
+}
+.cambioIdioma{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: white;
+    gap: 1rem;
+}
+.toggle{
+  display:flex;
+  align-items:center;
+  position: relative;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 1rem;
+  background-color: white;
+  cursor: pointer;
+}
+.toggle div{
+    height: 2rem;
+    width: 2rem;
+    background-color: #5f43ed;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    transition: left .4s;
+}
+.toggle .activo{
+    left: calc(100% - 2rem);
 }
 .contenedorGeneral{
     min-height: 83vh;
     display:grid;
     place-content: center;
     padding: 5rem;
-  }
+}

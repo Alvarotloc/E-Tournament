@@ -1,25 +1,15 @@
-import { useState } from "react";
 import { conseguirNombreMes, generarDias } from "../helpers";
+import useCalendario from "../hooks/useCalendario";
 import styles from "../styles/Calendar.module.css";
 const Calendar = () => {
-  const [anioActual, setAnioActual] = useState(new Date().getFullYear());
-  const [mesActual, setMesActual] = useState(new Date().getMonth() + 1);
-  const handleSiguienteMes = () => {
-    if (mesActual === 11) {
-      setAnioActual(anioActual + 1);
-      setMesActual(0);
-      return;
-    }
-    setMesActual(mesActual + 1);
-  };
-  const handleAnteriorMes = () => {
-    if (mesActual === 0) {
-      setAnioActual(anioActual - 1);
-      setMesActual(11);
-      return;
-    }
-    setMesActual(mesActual - 1);
-  };
+  const {
+    anioActual,
+    mesActual,
+    textos,
+    handleSiguienteMes,
+    handleAnteriorMes,
+  } = useCalendario();
+  
   const DIAS_SEMANA = {
     0 : `${styles.domingo}`,
     1 : `${styles.lunes}`,
@@ -40,14 +30,17 @@ const Calendar = () => {
         <p onClick={handleSiguienteMes}>&#62;</p>
       </header>
       <div className={styles.contenedorDias}>
-        <p>Lun</p>
-        <p>Mar</p>
-        <p>Mie</p>
-        <p>Jue</p>
-        <p>Vie</p>
-        <p>Sab</p>
-        <p>Dom</p>
-        <div className={DIAS_SEMANA[new Date(anioActual, mesActual - 1, 1).getDay()]}>1</div> {/* Damos estilos al primer dia del mes en base al diccionario de arriba, ya que el new Date nos da el día de la semana */}
+        {textos.map((texto) => (
+          <p key={texto}>{texto}</p>
+        ))}
+        <div
+          className={
+            DIAS_SEMANA[new Date(anioActual, mesActual - 1, 1).getDay()]
+          }
+        >
+          1
+        </div>{" "}
+        {/* Damos estilos al primer dia del mes en base al diccionario de arriba, ya que el new Date nos da el día de la semana */}
         {generarDias(new Date(anioActual, mesActual, 0).getDate()).map(
           (dia, index) => (
             <div key={index}>{dia}</div>
