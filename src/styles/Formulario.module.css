@@ -1,0 +1,86 @@
+.formulario {
+  width: 90vw;
+  background-color: rgb(89, 89, 89);
+  border-radius: 1rem;
+  overflow: hidden;
+  color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  padding: 0 0 3rem 0;
+}
+.formulario header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+    background-color: #936de0;
+    width: 100%;
+  }
+  .formulario header h1 {
+    position: absolute;
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+  }
+  @media (min-width: 670px) {
+    .formulario header h1 {
+      font-size: 3rem;
+    }
+}
+.formulario fieldset{
+    border: none;
+    padding: 3rem 5rem;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5rem;
+    width: 100%;
+}
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+.campo label{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.campo input, .campo textarea{
+    width: 100%;
+    border: 1px solid #936de0;
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: gray;
+}
+.campo:not(:last-child){
+    grid-column: 1 / 2;
+}
+.campo:last-child{
+    grid-column: 2 / 3;
+    grid-row: 1 / 4;
+}
+.campo textarea{
+    height: 100%;
+}
+input[type='submit']{
+    width: 30vw;
+    height: 5rem;
+    border-radius: 1rem;
+    margin: 0 auto;
+    background-color: #5f43ed;
+    color: white;
+    border: none;
+    font-weight: 700;
+    font-size: 1.7rem;
+    cursor: pointer;
+    transition: background-color .4s;
+}
+input[type='submit']:hover{
+    background-color: #553adb;
+}

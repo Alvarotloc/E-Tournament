@@ -7,11 +7,11 @@ html{
   padding:0;
   appearance: none;
   box-sizing: inherit;
+  font-family: 'Poppins', sans-serif;
 }
 body{
   font-size: 16px;
   /* Esto lo que hace es que 1rem equivalga a 10px */
   background-color: #262626;
   height: 100vh;
-  font-family: 'Poppins', sans-serif;
 }
