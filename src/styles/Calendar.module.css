@@ -1,133 +1,113 @@
 .contenedorCalendar {
-  height: 52vh;
   width: 90vw;
   background-color: rgb(89, 89, 89);
   border-radius: 1rem;
   overflow: hidden;
   color: white;
 }
-@media (min-height: 800px) {
-    .contenedorCalendar{
-      height: 45vh;
-    }
-}
 @media (min-width: 670px) {
   .contenedorCalendar {
-    height: 75vh;
     width: 70vw;
   }
 }
-.contenedorCalendar header{
+.contenedorCalendar header {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  background-color: #936DE0;
+  background-color: #936de0;
   position: relative;
   gap: 60vw;
 }
 @media (min-width: 670px) {
-    .contenedorCalendar header{
-      gap:35rem;
-    }
+  .contenedorCalendar header {
+    gap: 35rem;
+  }
 }
-.contenedorCalendar header h1{
+.contenedorCalendar header h1 {
   position: absolute;
   font-weight: 400;
   font-size: 1.8rem;
   text-transform: capitalize;
 }
-.contenedorCalendar header h1 span{
+.contenedorCalendar header h1 span {
   font-size: 1.2rem;
 }
 @media (min-width: 670px) {
-    .contenedorCalendar header h1{
-      font-size: 3rem;
-    }
-    .contenedorCalendar header h1 span{
-      font-size: 1.5rem;
-    }
+  .contenedorCalendar header h1 {
+    font-size: 3rem;
+  }
+  .contenedorCalendar header h1 span {
+    font-size: 1.5rem;
+  }
 }
-.contenedorCalendar header p{
+.contenedorCalendar header p {
   font-size: 2rem;
   cursor: pointer;
 }
 @media (min-width: 670px) {
-    .contenedorCalendar header p{
-      font-size: 4rem;
-    }
+  .contenedorCalendar header p {
+    font-size: 4rem;
+  }
 }
-.contenedorDias{
-  display:flex;
-  flex-direction: column;
+.contenedorDias {
   padding: 2rem 3rem;
-}
-@media (min-width: 670px) {
-    .contenedorDias{
-      padding: 2rem 3rem;
-    }
-}
-.diasSemana{
-  display:grid;
-  grid-template-columns: repeat(7, 1fr);
-  justify-items: center;
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  font-weight: 400;
-}
-@media (min-width: 670px) {
-    .diasSemana{
-      font-size: 2rem;
-    }
-}
-.numeros{
   display: grid;
   justify-items: center;
-  gap: 2rem 0;
+  gap: 3vh 0;
   grid-template-columns: repeat(7, 1fr);
 }
-.numeros div{
+.contenedorDias div {
   width: 3rem;
   height: 3rem;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
   cursor: pointer;
   border-radius: 50%;
-  transition: background-color .4s;
+  transition: background-color 0.4s;
 }
-.numeros div:hover{
+.contenedorDias div:hover {
   background-color: rgb(71, 71, 71);
 }
 @media (min-width: 670px) {
-    .numeros div{
-      width: 5rem;
-      height: 5rem;
-      font-size: 2.5rem;
-    }
+  .contenedorDias div {
+    width: 6rem;
+    height: 6rem;
+    font-size: 2.5rem;
+  }
 }
-.activo{
-  background-color: #5F43ED;
+.contenedorDias p {
+  font-size: 1rem;
+  font-weight: 700;
 }
-.lunes{
+@media (min-width: 670px) {
+  .contenedorDias p {
+    font-size: 2.5rem;
+  }
+}
+.activo {
+  background-color: #5f43ed;
+}
+.lunes {
   grid-column: 1 / 2;
 }
-.martes{
+.martes {
   grid-column: 2 / 3;
 }
-.miercoles{
+.miercoles {
   grid-column: 3 / 4;
 }
-.jueves{
+.jueves {
   grid-column: 4 / 5;
 }
-.viernes{
+.viernes {
   grid-column: 5 / 6;
 }
-.sabado{
+.sabado {
   grid-column: 6 / 7;
 }
-.domingo{
+.domingo {
   grid-column: 7 / 8;
 }
