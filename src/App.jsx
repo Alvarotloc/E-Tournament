@@ -3,6 +3,8 @@ import { IdiomaProvider } from "./context/IdiomaProvider";
 import Calendar from "./pages/Calendar";
 import Formulario from "./pages/Formulario";
 import Layout from "./pages/Layout";
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -15,6 +17,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </IdiomaProvider>
   );
 };

@@ -8,17 +8,9 @@ const Calendar = () => {
     textos,
     handleSiguienteMes,
     handleAnteriorMes,
+    DIAS_SEMANA
   } = useCalendario();
-  
-  const DIAS_SEMANA = {
-    0 : `${styles.domingo}`,
-    1 : `${styles.lunes}`,
-    2 : `${styles.martes}`,
-    3 : `${styles.miercoles}`,
-    4 : `${styles.jueves}`,
-    5 : `${styles.viernes}`,
-    6 : `${styles.sabado}`,
-  };
+
   return (
     <div className={styles.contenedorCalendar}>
       <header>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useIdioma from "./useIdioma";
+import styles from "../styles/Calendar.module.css";
 
 const useCalendario = () => {
     const [anioActual, setAnioActual] = useState(new Date().getFullYear());
@@ -29,12 +30,22 @@ const useCalendario = () => {
       }
       setMesActual(mesActual - 1);
     };
+    const DIAS_SEMANA = {
+      0 : `${styles.domingo}`,
+      1 : `${styles.lunes}`,
+      2 : `${styles.martes}`,
+      3 : `${styles.miercoles}`,
+      4 : `${styles.jueves}`,
+      5 : `${styles.viernes}`,
+      6 : `${styles.sabado}`,
+    };
     return {
         anioActual,
         mesActual,
         textos,
         handleSiguienteMes,
         handleAnteriorMes,
+        DIAS_SEMANA
     };
 }
 
