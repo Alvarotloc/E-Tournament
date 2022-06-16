@@ -62,7 +62,7 @@ const Formulario = () => {
           />
         </div>
       </fieldset>
-      <input type="submit" value={textos[2]} />
+      <button type="submit" className={styles.submit}>{textos[2]}</button>
     </form>
   );
 };

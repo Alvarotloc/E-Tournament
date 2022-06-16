@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <img src="./imgs/LogoHeader.svg" alt="Logo de la empresa" />
-      <nav className={navVisible ? styles.visible : ''}>
+      <nav className={navVisible ? styles.visible : ''} onClick={() => setNavVisible(false)}>
         <Link
           to="/formulario"
           className={pathname === "/formulario" ? styles.enlaceActual : ""}

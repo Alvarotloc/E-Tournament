@@ -7,6 +7,7 @@ const useCalendario = () => {
     const [mesActual, setMesActual] = useState(new Date().getMonth() + 1);
     const [textos, setTextos] = useState([]);
     const {isSpanish} = useIdioma();
+
     useEffect(() => {
       if(isSpanish){
         setTextos(['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom']);
