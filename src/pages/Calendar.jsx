@@ -1,6 +1,7 @@
 import { conseguirNombreMes, generarDias } from "../helpers";
 import useCalendario from "../hooks/useCalendario";
 import styles from "../styles/Calendar.module.css";
+import { toast } from "react-toastify";
 const Calendar = () => {
   const {
     anioActual,
@@ -8,7 +9,10 @@ const Calendar = () => {
     textos,
     handleSiguienteMes,
     handleAnteriorMes,
-    DIAS_SEMANA
+    DIAS_SEMANA,
+    warning,
+    comprobarEvento,
+    conseguirEventoEditar,
   } = useCalendario();
 
   return (
@@ -35,7 +39,15 @@ const Calendar = () => {
         {/* Damos estilos al primer dia del mes en base al diccionario de arriba, ya que el new Date nos da el día de la semana */}
         {generarDias(new Date(anioActual, mesActual, 0).getDate()).map(
           (dia, index) => (
-            <div key={index}>{dia}</div>
+            <div
+              key={index}
+              className={comprobarEvento(dia) ? styles.activo : ""}
+              onClick={() =>
+                comprobarEvento(dia) ? conseguirEventoEditar(dia) : toast.warning(warning)
+              }
+            >
+              {dia}
+            </div>
           )
         )}
       </div>

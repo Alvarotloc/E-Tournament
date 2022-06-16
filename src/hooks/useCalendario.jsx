@@ -1,19 +1,26 @@
 import { useEffect, useState } from "react";
 import useIdioma from "./useIdioma";
 import styles from "../styles/Calendar.module.css";
+import useEventos from "./useEventos";
+import useFormData from "./useFormData";
 
 const useCalendario = () => {
     const [anioActual, setAnioActual] = useState(new Date().getFullYear());
     const [mesActual, setMesActual] = useState(new Date().getMonth() + 1);
     const [textos, setTextos] = useState([]);
+    const [warning, setWarning] = useState('No hay eventos para este día');
     const {isSpanish} = useIdioma();
+    const {eventos} = useEventos();
+    const {setObjetoEditar} = useFormData();
 
     useEffect(() => {
       if(isSpanish){
         setTextos(['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom']);
+        setWarning('No hay eventos para este día');
         return;
       }
       setTextos(['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']);
+      setWarning('No events for this day');
     },[isSpanish]);
     const handleSiguienteMes = () => {
       if (mesActual === 11) {
@@ -31,6 +38,34 @@ const useCalendario = () => {
       }
       setMesActual(mesActual - 1);
     };
+    const comprobarEvento = (dia) => {
+      return eventos.some((evento) => {
+        const eventoPartido = evento.fecha.split("-");
+        let mes;
+        if (mesActual.toString().length === 1) {
+          mes = "0" + mesActual;
+        }
+        return (
+          eventoPartido[0] === anioActual.toString() &&
+          eventoPartido[1] === mes &&
+          eventoPartido[2] === dia.toString()
+        );
+      });
+    };
+    const conseguirEventoEditar = (dia) => {
+        setObjetoEditar( eventos.find((evento) => {
+          const eventoPartido = evento.fecha.split("-");
+          let mes;
+          if (mesActual.toString().length === 1) {
+            mes = "0" + mesActual;
+          }
+          return (
+            eventoPartido[0] === anioActual.toString() &&
+            eventoPartido[1] === mes &&
+            eventoPartido[2] === dia.toString()
+          );
+        }))
+    }
     const DIAS_SEMANA = {
       0 : `${styles.domingo}`,
       1 : `${styles.lunes}`,
@@ -46,7 +81,10 @@ const useCalendario = () => {
         textos,
         handleSiguienteMes,
         handleAnteriorMes,
-        DIAS_SEMANA
+        DIAS_SEMANA,
+        comprobarEvento,
+        conseguirEventoEditar,
+        warning
     };
 }
 

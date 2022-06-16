@@ -82,7 +82,7 @@
     font-size: 2.5rem;
   }
 }
-.activo {
+.contenedorCalendar .contenedorDias .activo {
   background-color: #5f43ed;
 }
 .lunes {
