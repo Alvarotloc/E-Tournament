@@ -12,11 +12,12 @@ const Formulario = () => {
     setDescripcion,
     textos,
     handleSubmit,
+    objetoEditar
   } = useFormulario();
   return (
     <form className={styles.formulario} onSubmit={handleSubmit}>
       <header>
-        <h1>{textos[2]}</h1>
+        <h1>{Object.keys(objetoEditar).length > 0 ? textos[14] : textos[2]}</h1>
       </header>
       <fieldset>
         <div className={styles.campo}>
@@ -63,7 +64,7 @@ const Formulario = () => {
         </div>
       </fieldset>
       <button type="submit" className={styles.submit}>
-        {textos[2]}
+      {Object.keys(objetoEditar).length > 0 ? textos[14] : textos[2]}
       </button>
     </form>
   );

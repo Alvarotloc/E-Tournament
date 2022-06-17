@@ -30,6 +30,7 @@ const useFormulario = () => {
     "Solo puedes crear un evento por día",
     "Debes cambiar al menos un campo",
     "Evento editado con éxito",
+    "Editar Evento"
   ];
   const textosIngles = [
     "All fields are required",
@@ -46,6 +47,7 @@ const useFormulario = () => {
     "Only one event per day",
     "You must change at least one field",
     "Event edited successfully",
+    "Edit Event"
   ];
 
   useEffect(() => {
@@ -153,6 +155,7 @@ const useFormulario = () => {
     setDescripcion,
     textos,
     handleSubmit,
+    objetoEditar
   };
 };
 
