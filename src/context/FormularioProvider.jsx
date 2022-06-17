@@ -1,20 +1,22 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from "react";
 
 const FormularioContext = createContext();
 
-const FormularioProvider = ({children}) => {
-    const [objetoEditar, setObjetoEditar] = useState({});
+const FormularioProvider = ({ children }) => {
+  const [objetoEditar, setObjetoEditar] = useState({});
 
   return (
-    <FormularioContext.Provider value={{
+    <FormularioContext.Provider
+      value={{
         objetoEditar,
-        setObjetoEditar
-    }}>
-        {children}
+        setObjetoEditar,
+      }}
+    >
+      {children}
     </FormularioContext.Provider>
-  )
-}
+  );
+};
 
-export {FormularioProvider}
+export { FormularioProvider };
 
 export default FormularioContext;

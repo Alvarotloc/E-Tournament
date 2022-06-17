@@ -13,7 +13,7 @@ const useFormulario = () => {
 
   const { isSpanish } = useIdioma();
   const { eventos, setEventos } = useEventos();
-  const {objetoEditar, setObjetoEditar} = useFormData();
+  const { objetoEditar, setObjetoEditar } = useFormData();
 
   const textosEspaniol = [
     "Todos los campos son obligatorios",
@@ -49,13 +49,13 @@ const useFormulario = () => {
   ];
 
   useEffect(() => {
-    if(Object.keys(objetoEditar).length > 0){
+    if (Object.keys(objetoEditar).length > 0) {
       setNombre(objetoEditar.nombre);
       setParticipantes(objetoEditar.participantes);
       setFecha(objetoEditar.fecha);
       setDescripcion(objetoEditar.descripcion);
     }
-  },[objetoEditar]);
+  }, [objetoEditar]);
 
   useEffect(() => {
     if (isSpanish) {
@@ -72,8 +72,13 @@ const useFormulario = () => {
       return;
     }
 
-    if(Object.keys(objetoEditar).length > 0){
-      if(objetoEditar.nombre === nombre && objetoEditar.participantes === participantes && objetoEditar.fecha === fecha && objetoEditar.descripcion === descripcion){
+    if (Object.keys(objetoEditar).length > 0) {
+      if (
+        objetoEditar.nombre === nombre &&
+        objetoEditar.participantes === participantes &&
+        objetoEditar.fecha === fecha &&
+        objetoEditar.descripcion === descripcion
+      ) {
         toast.error(textos[12]);
         return;
       }
@@ -83,14 +88,24 @@ const useFormulario = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ nombre, participantes, fecha, descripcion, _id : objetoEditar._id }),
+          body: JSON.stringify({
+            nombre,
+            participantes,
+            fecha,
+            descripcion,
+            _id: objetoEditar._id,
+          }),
         });
         const respuestaJson = await respuesta.json();
         if (respuestaJson.error) {
           toast.error(textos[11]);
           return;
         }
-        setEventos(eventos.map((evento) => (evento._id === objetoEditar._id ? respuestaJson : evento)));
+        setEventos(
+          eventos.map((evento) =>
+            evento._id === objetoEditar._id ? respuestaJson : evento
+          )
+        );
         toast.success(textos[13]);
         setNombre("");
         setParticipantes("");

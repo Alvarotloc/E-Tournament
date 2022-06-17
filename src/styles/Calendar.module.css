@@ -6,6 +6,7 @@
   color: white;
   position: absolute;
   left: calc(50% - 45vw);
+  top: 5rem;
 }
 @media (min-width: 792px) {
   .contenedorCalendar {

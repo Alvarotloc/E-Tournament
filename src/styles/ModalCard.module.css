@@ -1,0 +1,97 @@
+.modal {
+  position: absolute;
+  z-index: 2;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+}
+.card {
+  width: 28rem;
+  height: fit-content;
+  background-color: rgb(41, 41, 41);
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  top: 5rem;
+}
+@media (min-width: 381px) {
+  .card {
+    width: 35rem;
+  }
+}
+
+.contenido {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 4rem 2rem;
+  gap: 2rem;
+  color: white;
+}
+.contenido h3 {
+  font-size: 2.3rem;
+}
+.descripcion {
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+}
+.topCard {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  position: absolute;
+  top: 1rem;
+}
+.topCard p:first-child {
+  font-size: 2.5rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(89, 89, 89);
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+.topCard p:first-child:hover {
+  background-color: rgb(65, 65, 65);
+}
+.topCard p:last-child {
+  background-color: rgb(89, 89, 89);
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+}
+.botones {
+  display: flex;
+  justify-content: space-between;
+}
+.botones button {
+  padding: 1rem 2.5rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border: none;
+  color: white;
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+@media (min-width: 381px) {
+  .botones button {
+    padding: 1rem 4.5rem;
+  }
+}
+.botones button:first-child {
+  background-color: #5f43ed;
+}
+.botones button:last-child {
+  background-color: #bb0000;
+}
+.botones button:first-child:hover {
+  background-color: #4326d6;
+}
+.botones button:last-child:hover {
+  background-color: #a00000;
+}

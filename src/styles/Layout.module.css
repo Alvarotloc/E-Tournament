@@ -1,70 +1,70 @@
-.header{
-    height: 17vh;
-    background-color: #0f0f0f;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding: 0 3rem;
-    width: 100%;
-    position: relative;
+.header {
+  height: 17vh;
+  background-color: #0f0f0f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3rem;
+  width: 100%;
+  position: relative;
 }
 @media (min-width: 792px) {
-    .header{
-        padding: 0 5rem;
-    }
+  .header {
+    padding: 0 5rem;
+  }
 }
-.header nav{
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    height: 100vh;
-    width: 100%;
-    gap: 5rem;
-    position: fixed;
-    right: -100%;
-    background-color: #0f0f0f;
-    padding: 20vh 3rem 3rem 3rem;
-    top: 0;
-    transition: right 0.5s ease-in-out;
-    opacity: .9;
-    z-index: 2;
+.header nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  gap: 5rem;
+  position: fixed;
+  right: -100%;
+  background-color: #0f0f0f;
+  padding: 20vh 3rem 3rem 3rem;
+  top: 0;
+  transition: right 0.5s ease-in-out;
+  opacity: 0.9;
+  z-index: 2;
 }
-.header nav.visible{
-    right: 0;
+.header nav.visible {
+  right: 0;
 }
 @media (min-width: 792px) {
-    .header nav{
-        flex-direction: row;
-        position: static;
-        padding: 0;
-        width: auto;
-        height: auto;
-    }
+  .header nav {
+    flex-direction: row;
+    position: static;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
 }
-.header nav a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: color .4s;
+.header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.4s;
 }
-.header nav a:hover{
-    color: #936de0;
+.header nav a:hover {
+  color: #936de0;
 }
-.header nav a.enlaceActual{
-    color: #936de0;
+.header nav a.enlaceActual {
+  color: #936de0;
 }
-.cambioIdioma{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color: white;
-    gap: 1rem;
+.cambioIdioma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 1rem;
 }
-.toggle{
-  display:flex;
-  align-items:center;
+.toggle {
+  display: flex;
+  align-items: center;
   position: relative;
   width: 4rem;
   height: 2rem;
@@ -72,50 +72,51 @@
   background-color: white;
   cursor: pointer;
 }
-.toggle div{
-    height: 2rem;
-    width: 2rem;
-    background-color: #5f43ed;
-    border-radius: 50%;
-    position: absolute;
-    left: 0;
-    transition: left .4s;
+.toggle div {
+  height: 2rem;
+  width: 2rem;
+  background-color: #5f43ed;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  transition: left 0.4s;
 }
-.toggle .activo{
-    left: calc(100% - 2rem);
+.toggle .activo {
+  left: calc(100% - 2rem);
 }
-.hamburguer{
-    display:flex;
-    flex-direction: column;
-    gap: .6rem;
-    cursor: pointer;
-    position: absolute;
-    right: 5rem;
-    z-index: 2;
+.hamburguer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  cursor: pointer;
+  position: absolute;
+  right: 5rem;
+  z-index: 2;
 }
 @media (min-width: 792px) {
-    .hamburguer{
-        display:none;
-    }
+  .hamburguer {
+    display: none;
+  }
 }
-.hamburguer span{
-    height: .3rem;
-    width: 3rem;
-    background-color: white;
-    transition: all .4s;
+.hamburguer span {
+  height: 0.3rem;
+  width: 3rem;
+  background-color: white;
+  transition: all 0.4s;
 }
-.hamburguer.cerrar span:nth-child(1){
-    transform: rotate(45deg) translateY(.7rem) translateX(.5rem);
+.hamburguer.cerrar span:nth-child(1) {
+  transform: rotate(45deg) translateY(0.7rem) translateX(0.5rem);
 }
-.hamburguer.cerrar span:nth-child(2){
-    opacity: 0;
+.hamburguer.cerrar span:nth-child(2) {
+  opacity: 0;
 }
-.hamburguer.cerrar span:nth-child(3){
-    transform: rotate(-45deg) translateY(-.8rem) translateX(.5rem);
+.hamburguer.cerrar span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-0.8rem) translateX(0.5rem);
 }
-.contenedorGeneral{
-    min-height: 83vh;
-    display:grid;
-    place-content: center;
-    padding: 5rem;
+.contenedorGeneral {
+  min-height: 83vh;
+  display: grid;
+  place-content: center;
+  padding: 5rem;
+  position: relative;
 }
