@@ -3,6 +3,7 @@ import useCalendario from "../hooks/useCalendario";
 import styles from "../styles/Calendar.module.css";
 import { toast } from "react-toastify";
 import ModalCard from "../components/ModalCard";
+import SideBar from "../components/SideBar";
 const Calendar = () => {
   const {
     anioActual,
@@ -19,6 +20,7 @@ const Calendar = () => {
 
   return (
     <>
+    <SideBar />
       {modal && <ModalCard />}
       <div className={styles.contenedorCalendar}>
         <header>

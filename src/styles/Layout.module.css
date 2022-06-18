@@ -7,6 +7,7 @@
   padding: 0 3rem;
   width: 100%;
   position: relative;
+  /* z-index: 4; */
 }
 @media (min-width: 792px) {
   .header {
@@ -27,7 +28,7 @@
   top: 0;
   transition: right 0.5s ease-in-out;
   opacity: 0.9;
-  z-index: 2;
+  z-index: 10;
 }
 .header nav.visible {
   right: 0;
@@ -91,7 +92,7 @@
   cursor: pointer;
   position: absolute;
   right: 5rem;
-  z-index: 2;
+  z-index: 11;
 }
 @media (min-width: 792px) {
   .hamburguer {

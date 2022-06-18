@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import styles from "../styles/Layout.module.css";
 import useIdioma from "../hooks/useIdioma";
-import useEventos from "../hooks/useEventos";
 import { useEffect, useState } from "react";
 import ToggleIdioma from "./ToggleIdioma";
 import useFormData from "../hooks/useFormData";
@@ -10,7 +9,6 @@ const Header = () => {
   const [navVisible, setNavVisible] = useState(false);
   const { isSpanish } = useIdioma();
   const { pathname } = useLocation();
-  const { setModal } = useEventos();
   const { setObjetoEditar } = useFormData();
 
   useEffect(() => {
@@ -21,13 +19,8 @@ const Header = () => {
     setTextos(["Add", "Calendar"]);
   }, [isSpanish]);
 
-  const resetStates = () => {
-    setModal(false);
-    setObjetoEditar({});
-  };
-
   return (
-    <header className={styles.header} onClick={resetStates}>
+    <header className={styles.header} onClick={() => setObjetoEditar({})}>
       <img src="./imgs/LogoHeader.svg" alt="Logo de la empresa" />
       <nav
         className={navVisible ? styles.visible : ""}

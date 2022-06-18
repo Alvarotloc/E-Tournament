@@ -1,0 +1,88 @@
+.contendorSidebar{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.contendorSidebar.activo{
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    z-index: 15;
+}
+.sidebar{
+    position: absolute;
+    height: 5rem;
+    width: 5rem;
+    padding: 1rem;
+    background-color: #553adb;
+    border-radius: 50%;
+    top: 16vh;
+    left: 2rem;
+    cursor: pointer;
+    transition-property: width, height, background-color, border-radius;
+    transition-duration: .5s;
+}
+.sidebar.activo{
+    height: 70%;
+    width: 85vw;
+    border-radius: 1rem;
+    cursor: default;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    z-index: 12;
+}
+@media (min-width: 368px) {
+    .sidebar.activo{
+        width: 30rem;
+    }
+}
+.sidebar:hover{
+    background-color: #553adb;
+}
+.sidebar header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sidebar header p{
+    font-size: 4rem;
+    cursor: pointer;
+}
+.contenedorEventos{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    overflow-y: scroll;
+    height: 80%;
+}
+.contenedorEventos::-webkit-scrollbar {
+    display: none;
+}
+.evento{
+    border-bottom: .1rem solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.textos{
+    display:flex;
+    flex-direction: column;
+}
+.evento svg{
+    cursor: pointer;
+    fill: none;
+    stroke: white;
+    transition: stroke .4s;
+}
+.evento svg:hover{
+    stroke: #bb0000;
+}
+.sidebar svg{
+    color: white;
+}
