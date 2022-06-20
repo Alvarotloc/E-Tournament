@@ -4,17 +4,20 @@ import { toast } from "react-toastify";
 import useEventos from "./useEventos";
 import useFormData from "./useFormData";
 
-const useFormulario = () => {
+const useFormulario = () => { //Creamos un custom hook para sacar toda la lógica de la pagina de formulario
+  // Creamos los states para formulario
   const [textos, setTextos] = useState([]);
   const [nombre, setNombre] = useState("");
   const [participantes, setParticipantes] = useState("");
   const [fecha, setFecha] = useState("");
   const [descripcion, setDescripcion] = useState("");
 
+  // Desestructuramos los datos de los context necesarios
   const { isSpanish } = useIdioma();
   const { eventos, setEventos } = useEventos();
   const { objetoEditar, setObjetoEditar } = useFormData();
 
+  // Creamos una constante con los textos en español y otra con los textos en inglés
   const textosEspaniol = [
     "Todos los campos son obligatorios",
     "Evento creado con éxito",
@@ -57,9 +60,9 @@ const useFormulario = () => {
       setFecha(objetoEditar.fecha);
       setDescripcion(objetoEditar.descripcion);
     }
-  }, [objetoEditar]);
+  }, [objetoEditar]); //Cada vez que cambie el objeto editar, si tiene algo, se actualizan los states de los campos del form
 
-  useEffect(() => {
+  useEffect(() => { //Cada vez que cambie el idioma, se actualizan los textos
     if (isSpanish) {
       setTextos(textosEspaniol);
       return;
@@ -70,17 +73,17 @@ const useFormulario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if ([nombre, participantes, fecha, descripcion].includes("")) {
-      toast.error(textos[0]);
+      toast.error(textos[0]); //Si alguno de los campos está vacio, muestra un error
       return;
     }
 
-    if (Object.keys(objetoEditar).length > 0) {
+    if (Object.keys(objetoEditar).length > 0) { // Si objetoEditar tiene algo, es porque estamos editando un evento, por lo que se mandan los datos con el método PUT
       if (
         objetoEditar.nombre === nombre &&
         objetoEditar.participantes === participantes &&
         objetoEditar.fecha === fecha &&
         objetoEditar.descripcion === descripcion
-      ) {
+      ) { //Si los datos no han cambiado, muestra un error
         toast.error(textos[12]);
         return;
       }
@@ -100,26 +103,26 @@ const useFormulario = () => {
         });
         const respuestaJson = await respuesta.json();
         if (respuestaJson.error) {
-          toast.error(textos[11]);
+          toast.error(textos[11]); //Si el backend nos manda un error lo mostramos (nos puede mandar el error de que ya hauy un evento en esa fecha)
           return;
         }
         setEventos(
           eventos.map((evento) =>
             evento._id === objetoEditar._id ? respuestaJson : evento
           )
-        );
+        ); //Si no hay error, actualizamos el state de los eventos cambiando los datos del que coincida con el id del evento que estamos editando
         toast.success(textos[13]);
         setNombre("");
         setParticipantes("");
         setFecha("");
         setDescripcion("");
-        setObjetoEditar({});
+        setObjetoEditar({}); //limpiamos states
       } catch (error) {
         console.log(error);
       }
       return;
     }
-
+    // si no se está editando se manda con el método POST
     try {
       const respuesta = await fetch(import.meta.env.VITE_BACKEND_URL, {
         method: "POST",
@@ -129,16 +132,16 @@ const useFormulario = () => {
         body: JSON.stringify({ nombre, participantes, fecha, descripcion }),
       });
       const respuestaJson = await respuesta.json();
-      if (respuestaJson.error) {
+      if (respuestaJson.error) { //Si el backend nos manda un error lo mostramos
         toast.error(textos[11]);
         return;
       }
-      setEventos([...eventos, respuestaJson]);
+      setEventos([...eventos, respuestaJson]); //Si no hay error, actualizamos el state de los eventos agregando el nuevo evento
       toast.success(textos[1]);
       setNombre("");
       setParticipantes("");
       setFecha("");
-      setDescripcion("");
+      setDescripcion(""); //limpiamos states
     } catch (error) {
       console.log(error);
     }

@@ -48,6 +48,7 @@
     flex-direction: column;
     gap: 3rem;
     z-index: 12;
+    overflow: hidden;
 }
 @media (min-width: 368px) {
     .sidebar.activo{
@@ -67,7 +68,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 78vw;
+}
+@media (min-width: 368px) {
+    .sidebar header{
+        width: 28rem;
+    }
+    
 }
 .sidebar header p{
     font-size: 4rem;
@@ -96,6 +103,12 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    width: 72vw;
+}
+@media (min-width: 368px) {
+    .evento{
+        width: 25rem;
+    }
 }
 .textos{
     display:flex;
@@ -112,4 +125,8 @@
 }
 .sidebar svg{
     color: white;
+}
+.iconoLista{
+    width: 3rem;
+    height: 3rem;
 }

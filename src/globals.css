@@ -17,3 +17,4 @@ body {
   background-color: #262626;
   height: 100vh;
 }
+/* Se ha decidido utilizar css por módulos para mayor legibilidad y escalabilidad, por lo que en este archivo global solo hay tipo de letra y normalización */

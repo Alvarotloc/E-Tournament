@@ -13,11 +13,12 @@ const Formulario = () => {
     textos,
     handleSubmit,
     objetoEditar
-  } = useFormulario();
+  } = useFormulario(); //Importar lo necesario de su custom hook
+
   return (
     <form className={styles.formulario} onSubmit={handleSubmit}>
       <header>
-        <h1>{Object.keys(objetoEditar).length > 0 ? textos[14] : textos[2]}</h1>
+        <h1>{Object.keys(objetoEditar).length > 0 ? textos[14] : textos[2]}</h1> {/*En base a si está editando o no se cambia el texto */}
       </header>
       <fieldset>
         <div className={styles.campo}>
@@ -28,7 +29,7 @@ const Formulario = () => {
             name="nombre"
             id="nombre"
             value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
+            onChange={e => setNombre(e.target.value)}
           />
         </div>
         <div className={styles.campo}>
@@ -39,7 +40,7 @@ const Formulario = () => {
             name="participantes"
             id="participantes"
             value={participantes}
-            onChange={(e) => setParticipantes(e.target.value)}
+            onChange={e => setParticipantes(e.target.value)}
           />
         </div>
         <div className={styles.campo}>
@@ -49,7 +50,7 @@ const Formulario = () => {
             name="fecha"
             id="fecha"
             value={fecha}
-            onChange={(e) => setFecha(e.target.value)}
+            onChange={e => setFecha(e.target.value)}
           />
         </div>
         <div className={styles.campo}>
@@ -59,7 +60,7 @@ const Formulario = () => {
             id="descripcion"
             placeholder={textos[9]}
             value={descripcion}
-            onChange={(e) => setDescripcion(e.target.value)}
+            onChange={e => setDescripcion(e.target.value)}
           />
         </div>
       </fieldset>

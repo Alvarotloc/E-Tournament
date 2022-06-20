@@ -2,15 +2,16 @@ import { createContext, useEffect, useState } from "react";
 import useIdioma from "../hooks/useIdioma";
 import { toast } from "react-toastify";
 
-const EventosContext = createContext();
+const EventosContext = createContext(); //Creamos el contexto
 
 const EventosProvider = ({ children }) => {
+  //Creamos los states globales, de todos los eventos actuales, el objetoModal que será el que se llene cuando hagas click en un día con evento y el de modal visible
   const [eventos, setEventos] = useState([]);
   const [objetoModal, setObjetoModal] = useState({});
   const [modal, setModal] = useState(false);
   const { isSpanish } = useIdioma();
 
-  useEffect(() => {
+  useEffect(() => { //Creamos un useEffect sin dependencias para que haga una llamada al backend una vez cargue la página
     const conseguirEventos = async () => {
       const eventos = await fetch(import.meta.env.VITE_BACKEND_URL);
       const eventosJson = await eventos.json();
@@ -18,7 +19,8 @@ const EventosProvider = ({ children }) => {
     };
     conseguirEventos();
   }, []);
-  const handleEliminar = async (id) => {
+
+  const handleEliminar = async (id) => { //Creamos una función para eliminar un evento, recibe un id y si todo sale bien nos muestra una notificación toast
     try {
       await fetch(import.meta.env.VITE_BACKEND_URL, {
         method: "DELETE",
@@ -36,7 +38,7 @@ const EventosProvider = ({ children }) => {
   };
   return (
     <EventosContext.Provider
-      value={{
+      value={{ //Creamos el value que será el contexto al que tendrán acceso el resto de componentes
         eventos,
         setEventos,
         objetoModal,

@@ -1,6 +1,6 @@
 import useIdioma from "../hooks/useIdioma";
 import styles from "../styles/Layout.module.css";
-const ToggleIdioma = () => {
+const ToggleIdioma = () => { //Creamos el componente ToggleIdioma para cambiar entre inglés y español, recibe datos del contexto de idioma
   const { isSpanish, setIsSpanish } = useIdioma();
   return (
     <div className={styles.cambioIdioma}>

@@ -16,12 +16,12 @@ const Calendar = () => {
     comprobarEvento,
     conseguirEventoEditar,
     modal,
-  } = useCalendario();
+  } = useCalendario(); //Traemos los datos del custom hook
 
   return (
     <>
-    <SideBar />
-      {modal && <ModalCard />}
+      <SideBar />
+      {modal && <ModalCard />} {/*Si modal es true se muestra la modal */}
       <div className={styles.contenedorCalendar}>
         <header>
           <p onClick={handleAnteriorMes}>&#60;</p>
@@ -35,23 +35,16 @@ const Calendar = () => {
           {textos.map((texto) => (
             <p key={texto}>{texto}</p>
           ))}
-          <div
-            className={
-              DIAS_SEMANA[new Date(anioActual, mesActual - 1, 1).getDay()]
-            }
-          >
-            1
-          </div>{" "}
-          {/* Damos estilos al primer dia del mes en base al diccionario de arriba, ya que el new Date nos da el día de la semana */}
+          {/* Damos estilos al primer dia del mes en base al diccionario de arriba, ya que el new Date nos da el día de la semana en número, además con la función comprobarEvento le damos el estilo de activo en base a si hay o no evento */}
           {generarDias(new Date(anioActual, mesActual, 0).getDate()).map(
             (dia, index) => (
               <div
                 key={index}
-                className={comprobarEvento(dia) ? styles.activo : ""}
+                className={`${comprobarEvento(dia) ? styles.activo : ''} ${(dia === 1 ? DIAS_SEMANA[new Date(anioActual, mesActual - 1, 1).getDay()] : '' )}`}
                 onClick={() =>
                   comprobarEvento(dia)
                     ? conseguirEventoEditar(dia)
-                    : toast.warning(warning)
+                    : toast.warning(warning) //Si no hay evento, se muestra un toast de advertencia
                 }
               >
                 {dia}

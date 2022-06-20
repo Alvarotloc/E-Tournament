@@ -86,6 +86,7 @@
 .contenedorCalendar .contenedorDias .activo {
   background-color: #5f43ed;
 }
+/* Clases para cada día de la semana */
 .lunes {
   grid-column: 1 / 2;
 }
