@@ -39,7 +39,7 @@ const SideBar = () => {
                   <Evento key={evento._id} evento={evento} />
                 ))
               ) : (
-                <p>{textos[1]}</p>
+                <p className={styles.noEventos}>{textos[1]}</p>
               )}
             </div>
           </>

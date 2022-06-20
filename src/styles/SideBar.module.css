@@ -110,6 +110,14 @@
         width: 25rem;
     }
 }
+.noEventos{
+    width: 72vw;
+}
+@media (min-width: 368px) {
+    .noEventos{
+        width: 25rem;
+    }
+}
 .textos{
     display:flex;
     flex-direction: column;
