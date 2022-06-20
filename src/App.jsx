@@ -21,7 +21,7 @@ const App = () => {
               </Route>
             </Routes>
           </BrowserRouter>
-          <ToastContainer />s
+          <ToastContainer />
         </EventosProvider>
       </FormularioProvider>
     </IdiomaProvider>

@@ -18,7 +18,7 @@ const SideBar = () => {
   },[isSpanish])
   return (
     <div className={`${styles.contendorSidebar} ${activo ? styles.activo : ''}`}>
-        <aside className={`${styles.sidebar} ${activo ? styles.activo : ''}`}>
+        <aside className={`${styles.sidebar} ${activo ? styles.activo : ''}`} onClick={() => setActivo(!activo)}>
       {activo ? (
         <>
           <header>
@@ -37,7 +37,6 @@ const SideBar = () => {
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth={2}
-          onClick={() => setActivo(true)}
           >
           <path
             strokeLinecap="round"

@@ -5,6 +5,12 @@
     left: 0;
     z-index: 2;
 }
+@media (min-width: 768px) {
+    .contendorSidebar{
+        display: flex;
+        align-items: center;
+    }
+}
 .contendorSidebar.activo{
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
@@ -23,8 +29,17 @@
     transition-property: width, height, background-color, border-radius;
     transition-duration: .5s;
 }
+@media (min-width: 768px) {
+    .sidebar{
+        position: static;
+        height: 60%;
+        border-radius: 0 1rem 1rem 0;
+        display: flex;
+        align-items: center;
+    }
+}
 .sidebar.activo{
-    height: 70%;
+    height: 60%;
     width: 85vw;
     border-radius: 1rem;
     cursor: default;
@@ -39,6 +54,12 @@
         width: 30rem;
     }
 }
+@media (min-width: 768px) {
+    .sidebar.activo{
+        align-items: flex-start;
+        border-radius: 0 1rem 1rem 0;
+    }
+}
 .sidebar:hover{
     background-color: #553adb;
 }
@@ -46,10 +67,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 .sidebar header p{
     font-size: 4rem;
     cursor: pointer;
+    transition: transform .4s;
+}
+.sidebar header p:hover{
+    transform: rotate(90deg);
 }
 .contenedorEventos{
     display: flex;
@@ -69,6 +95,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
 }
 .textos{
     display:flex;
