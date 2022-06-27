@@ -11,6 +11,7 @@ const useFormulario = () => { //Creamos un custom hook para sacar toda la lógic
   const [participantes, setParticipantes] = useState("");
   const [fecha, setFecha] = useState("");
   const [descripcion, setDescripcion] = useState("");
+  const [cargando, setCargando] = useState(false);
 
   // Desestructuramos los datos de los context necesarios
   const { isSpanish } = useIdioma();
@@ -88,6 +89,7 @@ const useFormulario = () => { //Creamos un custom hook para sacar toda la lógic
         return;
       }
       try {
+        setCargando(true);
         const respuesta = await fetch(import.meta.env.VITE_BACKEND_URL, {
           method: "PUT",
           headers: {
@@ -119,11 +121,14 @@ const useFormulario = () => { //Creamos un custom hook para sacar toda la lógic
         setObjetoEditar({}); //limpiamos states
       } catch (error) {
         console.log(error);
+      }finally{
+        setCargando(false);
       }
       return;
     }
     // si no se está editando se manda con el método POST
     try {
+      setCargando(true);
       const respuesta = await fetch(import.meta.env.VITE_BACKEND_URL, {
         method: "POST",
         headers: {
@@ -144,6 +149,8 @@ const useFormulario = () => { //Creamos un custom hook para sacar toda la lógic
       setDescripcion(""); //limpiamos states
     } catch (error) {
       console.log(error);
+    }finally{
+      setCargando(cargando);
     }
   };
 
@@ -158,7 +165,8 @@ const useFormulario = () => { //Creamos un custom hook para sacar toda la lógic
     setDescripcion,
     textos,
     handleSubmit,
-    objetoEditar
+    objetoEditar,
+    cargando
   };
 };
 

@@ -89,9 +89,16 @@
   font-size: 1.7rem;
   cursor: pointer;
   transition: background-color 0.4s;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 .submit:hover {
   background-color: #553adb;
+}
+.submit:disabled{
+  background-color: #5f43ed;
+  cursor: default;
 }
 @media (min-width: 792px) {
   .submit {
