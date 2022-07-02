@@ -4,6 +4,7 @@ import useIdioma from "../hooks/useIdioma";
 import { useEffect, useState } from "react";
 import ToggleIdioma from "./ToggleIdioma";
 import useFormData from "../hooks/useFormData";
+import Logo from "./Logo";
 const Header = () => {
   const [textos, setTextos] = useState([]); //Creamos el state de textos para cambiar entre inglés y español
   const [navVisible, setNavVisible] = useState(false); //Creamos el state de navVisible para mostrar u ocultar el nav
@@ -21,7 +22,7 @@ const Header = () => {
 
   return (
     <header className={styles.header} onClick={() => setObjetoEditar({}) }> {/*Cada vez que se toque el header se resetea el objeto a editar para que si cambia de pagina no pueda volver a editar un evento a no ser que haga click en el dia corresponiente */}
-      <img src="./imgs/LogoHeader.svg" alt="Logo de la empresa" />
+      <Logo />
       <nav
         className={navVisible ? styles.visible : ""}
         onClick={() => setNavVisible(false)}

@@ -20,6 +20,13 @@ const EventosProvider = ({ children }) => {
     conseguirEventos();
   }, []);
 
+  useEffect(() => {
+    const eventosOrdenadosPorFecha = eventos.sort((a, b) => {
+      return new Date(a.fecha) - new Date(b.fecha);
+    });
+    setEventos(eventosOrdenadosPorFecha);
+  },[eventos]); //Creamos un useEffect para que se ejecute cuando cambie el state de eventos
+
   const handleEliminar = async (id) => { //Creamos una función para eliminar un evento, recibe un id y si todo sale bien nos muestra una notificación toast
     try {
       await fetch(import.meta.env.VITE_BACKEND_URL, {

@@ -1,3 +1,4 @@
+import Spinner from "../components/Spinner";
 import useFormulario from "../hooks/useFormulario";
 import styles from "../styles/Formulario.module.css";
 const Formulario = () => {
@@ -12,7 +13,8 @@ const Formulario = () => {
     setDescripcion,
     textos,
     handleSubmit,
-    objetoEditar
+    objetoEditar,
+    cargando
   } = useFormulario(); //Importar lo necesario de su custom hook
 
   return (
@@ -64,8 +66,8 @@ const Formulario = () => {
           />
         </div>
       </fieldset>
-      <button type="submit" className={styles.submit}>
-      {Object.keys(objetoEditar).length > 0 ? textos[14] : textos[2]}
+      <button type="submit" className={styles.submit} disabled={cargando ? true : false}>
+      {cargando ? <Spinner /> : (Object.keys(objetoEditar).length > 0 ? textos[14] : textos[2])}
       </button>
     </form>
   );
