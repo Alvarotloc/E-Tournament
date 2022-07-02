@@ -15,7 +15,10 @@ const EventosProvider = ({ children }) => {
     const conseguirEventos = async () => {
       const eventos = await fetch(import.meta.env.VITE_BACKEND_URL);
       const eventosJson = await eventos.json();
-      setEventos(eventosJson);
+      const eventosOrdenadosPorFecha = eventosJson.sort((a, b) => {
+        return new Date(a.fecha) - new Date(b.fecha);
+      });
+      setEventos(eventosOrdenadosPorFecha);
     };
     conseguirEventos();
   }, []);
